@@ -2,14 +2,13 @@ const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const router = require("./router.js");
-const serverless = require("serverless-http");
 const PORT = 5000;
 const DB_URL = `mongodb+srv://user:123@cluster0.9uzmqgl.mongodb.net/?retryWrites=true&w=majority`;
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use("/.netlify/functions/index", router);
+app.use("", router);
 
 async function startApp() {
   try {
@@ -25,8 +24,4 @@ async function startApp() {
 
 startApp();
 
-// export const handler = serverless(app)
-
 module.exports = app;
-
-module.exports.handler = serverless(app);
