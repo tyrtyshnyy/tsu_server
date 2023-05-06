@@ -28,4 +28,5 @@ startApp();
 // export const handler = serverless(app)
 
 module.exports = app;
+
 module.exports.handler = serverless(app);
